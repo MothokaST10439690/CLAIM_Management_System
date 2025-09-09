@@ -7,23 +7,34 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
-        <Border Background="White" CornerRadius="10" Padding="20" Margin="20"
-                BorderBrush="#3498DB" BorderThickness="2">
-            <StackPanel>
-                <TextBlock Text="Approve or Reject Claims" FontSize="22" FontWeight="Bold"
-                           Foreground="#3498DB" Margin="0,0,0,20" HorizontalAlignment="Center"/>
+        <!-- Scrollable Content -->
+        <ScrollViewer VerticalScrollBarVisibility="Auto">
+            <Border Background="White" CornerRadius="10" Padding="20" Margin="20"
+                    BorderBrush="#3498DB" BorderThickness="2">
+                <StackPanel>
+                    <!-- Title -->
+                    <TextBlock Text="Approve or Reject Claims" FontSize="22" FontWeight="Bold"
+                               Foreground="#3498DB" Margin="0,0,0,20" HorizontalAlignment="Center"/>
 
-                <ListBox Height="200" BorderBrush="#3498DB">
-                    <ListBoxItem Content="Claim #001 - Pending"/>
-                    <ListBoxItem Content="Claim #002 - Pending"/>
-                    <ListBoxItem Content="Claim #003 - Pending"/>
-                </ListBox>
+                    <!-- Claims List -->
+                    <ListBox Height="200" BorderBrush="#3498DB">
+                        <ListBoxItem Content="Claim #001 - Pending"/>
+                        <ListBoxItem Content="Claim #002 - Pending"/>
+                        <ListBoxItem Content="Claim #003 - Pending"/>
+                        <ListBoxItem Content="Claim #004 - Pending"/>
+                        <ListBoxItem Content="Claim #005 - Pending"/>
+                        <ListBoxItem Content="Claim #006 - Pending"/>
+                        <ListBoxItem Content="Claim #007 - Pending"/>
+                        <ListBoxItem Content="Claim #008 - Pending"/>
+                    </ListBox>
 
-                <StackPanel Orientation="Horizontal" Margin="0,20,0,0" HorizontalAlignment="Center">
-                    <Button Content="Approve" Width="120" Margin="5" Background="#2ECC71" Foreground="White"/>
-                    <Button Content="Reject" Width="120" Margin="5" Background="#E74C3C" Foreground="White"/>
+                    <!-- Action Buttons -->
+                    <StackPanel Orientation="Horizontal" Margin="0,20,0,0" HorizontalAlignment="Center">
+                        <Button Content="Approve" Width="120" Margin="5" Background="#2ECC71" Foreground="White"/>
+                        <Button Content="Reject" Width="120" Margin="5" Background="#E74C3C" Foreground="White"/>
+                    </StackPanel>
                 </StackPanel>
-            </StackPanel>
-        </Border>
+            </Border>
+        </ScrollViewer>
     </Grid>
 </UserControl>

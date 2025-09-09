@@ -23,7 +23,7 @@ namespace CLAIM
         public VerifyClaimPage()
         {
             InitializeComponent();
-            // Here you would load data into ClaimsGrid
+            
         }
 
         private void VerifyButton_Click(object sender, RoutedEventArgs e)
