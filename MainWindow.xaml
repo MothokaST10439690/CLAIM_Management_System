@@ -1,0 +1,75 @@
+﻿<Window x:Class="CLAIM.MainWindow"
+
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Contract Monthly Claim System"
+        Height="500" Width="900"
+        WindowStartupLocation="CenterScreen"
+        Background="#F4F4F4">
+
+    <Grid>
+        <DockPanel>
+
+            <!-- Top Bar -->
+            <DockPanel DockPanel.Dock="Top" Background="#2C3E50" Height="50">
+                <TextBlock Text="Contract Monthly Claim System"
+                           Foreground="White" FontSize="20"
+                           VerticalAlignment="Center" Margin="15,0,0,0"
+                           FontWeight="SemiBold"/>
+                <Button Content="Back" Width="80" Height="30" 
+                        HorizontalAlignment="Right"
+                        Margin="0,0,15,0"
+                        Click="Back_Click"
+                        Background="#FFFFFF"
+                        Foreground="#2C3E50"
+                        BorderBrush="#2C3E50"
+                        VerticalAlignment="Center"/>
+            </DockPanel>
+
+            <!-- Navigation Bar -->
+            <StackPanel x:Name="NavBar" DockPanel.Dock="Top" Orientation="Horizontal" 
+                        Background="#ECECEC" Height="45" Visibility="Collapsed"
+                        HorizontalAlignment="Center">
+                <Button Content="Submit Claim" Width="140" Margin="5"
+                        Click="SubmitClaim_Click" 
+                        Background="#FFFFFF" BorderBrush="#D0D0D0"/>
+                <Button Content="Approve Claim" Width="140" Margin="5"
+                        Click="ApproveClaim_Click" 
+                        Background="#FFFFFF" BorderBrush="#D0D0D0"/>
+                <Button Content="Upload Documents" Width="160" Margin="5"
+                        Click="UploadDocs_Click" 
+                        Background="#FFFFFF" BorderBrush="#D0D0D0"/>
+                <Button Content="Track Status" Width="140" Margin="5"
+                        Click="TrackStatus_Click" 
+                        Background="#FFFFFF" BorderBrush="#D0D0D0"/>
+            </StackPanel>
+
+            <!-- Main Content Area -->
+            <Grid>
+                <!-- Role Selection -->
+                <StackPanel x:Name="RoleSelectionPanel"
+                            VerticalAlignment="Center"
+                            HorizontalAlignment="Center"
+                            Orientation="Vertical"
+                            Width="300">
+                    <TextBlock Text="Select Your Role" 
+                               FontSize="24" FontWeight="Bold"
+                               Foreground="#333" HorizontalAlignment="Center"
+                               Margin="0,0,0,20"/>
+                    <Button Content="Lecturer" Height="45" Margin="0,10,0,0"
+                            Click="Lecturer_Click" Background="#2C3E50"
+                            Foreground="White" FontWeight="Bold"/>
+                    <Button Content="Programme Coordinator" Height="45" Margin="0,10,0,0"
+                            Click="Coordinator_Click" Background="#2C3E50"
+                            Foreground="White" FontWeight="Bold"/>
+                    <Button Content="Academic Manager" Height="45" Margin="0,10,0,0"
+                            Click="Manager_Click" Background="#2C3E50"
+                            Foreground="White" FontWeight="Bold"/>
+                </StackPanel>
+
+                <!-- Dynamic Pages Load Here -->
+                <ContentControl x:Name="MainContent"/>
+            </Grid>
+        </DockPanel>
+    </Grid>
+</Window>
