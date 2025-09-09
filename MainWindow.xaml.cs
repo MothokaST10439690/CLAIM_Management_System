@@ -19,7 +19,7 @@ namespace CLAIM
         public MainWindow()
         {
             InitializeComponent();
-            ShowRoleSelection(); // Show role selection first
+            ShowRoleSelection();
         }
 
         private void LoadPage(UserControl page)
@@ -58,7 +58,7 @@ namespace CLAIM
 
         private void Back_Click(object sender, RoutedEventArgs e)
         {
-            ShowRoleSelection(); 
+            ShowRoleSelection();
         }
 
         private void Lecturer_Click(object sender, RoutedEventArgs e)
@@ -92,6 +92,11 @@ namespace CLAIM
             LoadPage(new SubmitClaimPage());
         }
 
+        private void VerifyClaim_Click(object sender, RoutedEventArgs e)
+        {
+            LoadPage(new VerifyClaimPage());
+        }
+
         private void ShowCoordinatorView()
         {
             NavBar.Visibility = Visibility.Visible;
@@ -104,7 +109,7 @@ namespace CLAIM
                                       ? Visibility.Visible : Visibility.Collapsed;
                 }
             }
-            LoadPage(new ApproveClaimPage());
+            LoadPage(new VerifyClaimPage());
         }
 
         private void ShowManagerView()

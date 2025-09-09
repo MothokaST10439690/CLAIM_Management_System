@@ -1,5 +1,4 @@
 ﻿<Window x:Class="CLAIM.MainWindow"
-
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="Contract Monthly Claim System"
@@ -32,6 +31,9 @@
                         HorizontalAlignment="Center">
                 <Button Content="Submit Claim" Width="140" Margin="5"
                         Click="SubmitClaim_Click" 
+                        Background="#FFFFFF" BorderBrush="#D0D0D0"/>
+                <Button Content="Verify Claim" Width="140" Margin="5"
+                        Click="VerifyClaim_Click" 
                         Background="#FFFFFF" BorderBrush="#D0D0D0"/>
                 <Button Content="Approve Claim" Width="140" Margin="5"
                         Click="ApproveClaim_Click" 
