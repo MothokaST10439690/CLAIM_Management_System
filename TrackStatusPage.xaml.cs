@@ -12,17 +12,23 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Xml.Linq;
 
 namespace CLAIM
 {
-    /// <summary>
-    /// Interaction logic for TrackStatusPage.xaml
-    /// </summary>
     public partial class TrackStatusPage : UserControl
     {
         public TrackStatusPage()
         {
             InitializeComponent();
+            
+        }
+
+        private void RefreshButton_Click(object sender, RoutedEventArgs e)
+        {
+            
         }
     }
 }
+
+

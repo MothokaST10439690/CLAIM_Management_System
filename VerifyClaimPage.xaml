@@ -8,19 +8,27 @@
                        FontSize="24" FontWeight="Bold"
                        Foreground="#2C3E50" Margin="0,0,0,20"/>
 
-            <DataGrid x:Name="ClaimsGrid" AutoGenerateColumns="False" Height="300" Margin="0,0,0,20">
+            <DataGrid x:Name="ClaimsGrid" AutoGenerateColumns="False" Height="300" Margin="0,0,0,20"
+                     CanUserAddRows="False" CanUserDeleteRows="False" IsReadOnly="True">
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="Claim ID" Binding="{Binding ClaimID}" Width="*"/>
-                    <DataGridTextColumn Header="Lecturer" Binding="{Binding LecturerName}" Width="*"/>
-                    <DataGridTextColumn Header="Amount" Binding="{Binding Amount}" Width="*"/>
-                    <DataGridTextColumn Header="Status" Binding="{Binding Status}" Width="*"/>
+                    <DataGridTextColumn Header="Claim ID" Binding="{Binding Id}" Width="100"/>
+                    <DataGridTextColumn Header="Lecturer" Binding="{Binding LecturerName}" Width="150"/>
+                    <DataGridTextColumn Header="Month" Binding="{Binding Month}" Width="100"/>
+                    <DataGridTextColumn Header="Hours" Binding="{Binding HoursWorked}" Width="80"/>
+                    <DataGridTextColumn Header="Amount" Binding="{Binding TotalAmount, StringFormat=C}" Width="100"/>
+                    <DataGridTextColumn Header="Status" Binding="{Binding Status}" Width="100"/>
+                    <DataGridTextColumn Header="Submission Date" Binding="{Binding SubmissionDate, StringFormat=MM/dd/yyyy}" Width="120"/>
                 </DataGrid.Columns>
             </DataGrid>
 
-            <Button Content="Verify Selected Claim"
-                    Width="200" Height="40"
-                    Background="#2C3E50" Foreground="White"
-                    Click="VerifyButton_Click"/>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <Button Content="Verify Selected Claim" Width="180" Height="40"
+                        Background="#3498db" Foreground="White" FontWeight="Bold"
+                        Click="VerifyButton_Click" Margin="0,0,10,0"/>
+                <Button Content="Refresh List" Width="120" Height="40"
+                        Background="#95a5a6" Foreground="White" FontWeight="Bold"
+                        Click="RefreshButton_Click"/>
+            </StackPanel>
         </StackPanel>
     </Grid>
 </UserControl>

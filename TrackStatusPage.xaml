@@ -13,16 +13,32 @@
                 <TextBlock Text="Track Claim Status" FontSize="22" FontWeight="Bold"
                            Foreground="#E67E22" Margin="0,0,0,20" HorizontalAlignment="Center"/>
 
-                <ListView Height="250" BorderBrush="#E67E22">
+                <ListView x:Name="ClaimsListView" Height="250" BorderBrush="#E67E22" BorderThickness="1">
                     <ListView.View>
                         <GridView>
-                            <GridViewColumn Header="Claim ID" Width="100"/>
-                            <GridViewColumn Header="Month" Width="150"/>
-                            <GridViewColumn Header="Status" Width="200"/>
-                            <GridViewColumn Header="Last Updated" Width="200"/>
+                            <GridViewColumn Header="Claim ID" Width="100" DisplayMemberBinding="{Binding Id}"/>
+                            <GridViewColumn Header="Month" Width="100" DisplayMemberBinding="{Binding Month}"/>
+                            <GridViewColumn Header="Lecturer" Width="150" DisplayMemberBinding="{Binding LecturerName}"/>
+                            <GridViewColumn Header="Amount" Width="100" DisplayMemberBinding="{Binding TotalAmount, StringFormat=C}"/>
+                            <GridViewColumn Header="Status" Width="120">
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Border Background="{Binding Status, Converter={StaticResource StatusToColorConverter}}" 
+                                               Padding="5,2" CornerRadius="10">
+                                            <TextBlock Text="{Binding Status}" Foreground="White" 
+                                                      FontWeight="Bold" HorizontalAlignment="Center"/>
+                                        </Border>
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                            </GridViewColumn>
+                            <GridViewColumn Header="Last Updated" Width="150" DisplayMemberBinding="{Binding SubmissionDate, StringFormat=MM/dd/yyyy}"/>
                         </GridView>
                     </ListView.View>
                 </ListView>
+
+                <Button Content="Refresh Status" Width="150" Margin="0,20,0,0" HorizontalAlignment="Center"
+                        Background="#E67E22" Foreground="White" Click="RefreshButton_Click"
+                        FontWeight="Bold" Height="35"/>
             </StackPanel>
         </Border>
     </Grid>
