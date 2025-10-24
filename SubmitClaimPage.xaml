@@ -52,7 +52,7 @@
                 <!-- Total Amount -->
                 <StackPanel Orientation="Horizontal" Margin="0,10">
                     <TextBlock Text="Total Amount:" Width="150" VerticalAlignment="Center" FontWeight="SemiBold"/>
-                    <TextBlock x:Name="TotalAmountText" Text="$0.00" Width="200" VerticalAlignment="Center" 
+                    <TextBlock x:Name="TotalAmountText" Text="R0.00" Width="200" VerticalAlignment="Center" 
                               FontWeight="Bold" Foreground="#27ae60"/>
                 </StackPanel>
 
