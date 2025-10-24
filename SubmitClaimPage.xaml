@@ -5,75 +5,82 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
+
     <Grid>
-        <Border Background="White" CornerRadius="10" Padding="20" Margin="20"
+        <Border Background="White" CornerRadius="10" Padding="20" Margin="20,10,20,30"
                 BorderBrush="#1ABC9C" BorderThickness="2">
-            <StackPanel>
-                <TextBlock Text="Submit Monthly Claim" FontSize="22" FontWeight="Bold"
-                           Foreground="#1ABC9C" Margin="0,0,0,20" HorizontalAlignment="Center"/>
 
-                <!-- Lecturer Name -->
-                <StackPanel Orientation="Horizontal" Margin="0,10">
-                    <TextBlock Text="Lecturer Name:" Width="150" VerticalAlignment="Center" FontWeight="SemiBold"/>
-                    <TextBox x:Name="LecturerNameTextBox" Width="200"/>
+            <!-- ADD SCROLLVIEWER HERE -->
+            <ScrollViewer VerticalScrollBarVisibility="Auto" Margin="0,12,0,-12">
+                <StackPanel>
+
+                    <TextBlock Text="Submit Monthly Claim" FontSize="22" FontWeight="Bold"
+                               Foreground="#1ABC9C" Margin="0,0,0,20" HorizontalAlignment="Center"/>
+
+                    <!-- Lecturer Name -->
+                    <StackPanel Orientation="Horizontal" Margin="0,10">
+                        <TextBlock Text="Lecturer Name:" Width="150" VerticalAlignment="Center" FontWeight="SemiBold"/>
+                        <TextBox x:Name="LecturerNameTextBox" Width="200"/>
+                    </StackPanel>
+
+                    <!-- Month Selection -->
+                    <StackPanel Orientation="Horizontal" Margin="0,10">
+                        <TextBlock Text="Month:" Width="150" VerticalAlignment="Center" FontWeight="SemiBold"/>
+                        <ComboBox x:Name="MonthComboBox" Width="200">
+                            <ComboBoxItem Content="January"/>
+                            <ComboBoxItem Content="February"/>
+                            <ComboBoxItem Content="March"/>
+                            <ComboBoxItem Content="April"/>
+                            <ComboBoxItem Content="May"/>
+                            <ComboBoxItem Content="June"/>
+                            <ComboBoxItem Content="July"/>
+                            <ComboBoxItem Content="August"/>
+                            <ComboBoxItem Content="September"/>
+                            <ComboBoxItem Content="October"/>
+                            <ComboBoxItem Content="November"/>
+                            <ComboBoxItem Content="December"/>
+                        </ComboBox>
+                    </StackPanel>
+
+                    <!-- Year Input -->
+                    <StackPanel Orientation="Horizontal" Margin="0,10">
+                        <TextBlock Text="Year:" Width="150" VerticalAlignment="Center" FontWeight="SemiBold"/>
+                        <TextBox x:Name="YearTextBox" Width="200" Text="2024"/>
+                    </StackPanel>
+
+                    <!-- Hours Worked -->
+                    <StackPanel Orientation="Horizontal" Margin="0,10">
+                        <TextBlock Text="Total Hours Worked:" Width="150" VerticalAlignment="Center" FontWeight="SemiBold"/>
+                        <TextBox x:Name="HoursTextBox" Width="200" Text="0"/>
+                    </StackPanel>
+
+                    <!-- Hourly Rate -->
+                    <StackPanel Orientation="Horizontal" Margin="0,10">
+                        <TextBlock Text="Hourly Rate:" Width="150" VerticalAlignment="Center" FontWeight="SemiBold"/>
+                        <TextBlock Text="R50.00" Width="200" VerticalAlignment="Center" Foreground="#7f8c8d"/>
+                    </StackPanel>
+
+                    <!-- Total Amount -->
+                    <StackPanel Orientation="Horizontal" Margin="0,10">
+                        <TextBlock Text="Total Amount:" Width="150" VerticalAlignment="Center" FontWeight="SemiBold"/>
+                        <TextBlock x:Name="TotalAmountText" Text="R0.00" Width="200" VerticalAlignment="Center" 
+                                   FontWeight="Bold" Foreground="#27ae60"/>
+                    </StackPanel>
+
+                    <!-- Additional Notes -->
+                    <StackPanel Orientation="Horizontal" Margin="0,10">
+                        <TextBlock Text="Additional Notes:" Width="150" VerticalAlignment="Top" FontWeight="SemiBold"/>
+                        <TextBox x:Name="NotesTextBox" Width="200" Height="60" TextWrapping="Wrap" AcceptsReturn="True"
+                                 VerticalScrollBarVisibility="Auto"/>
+                    </StackPanel>
+
+                    <!-- Submit Button -->
+                    <Button Content="Submit Claim" Background="#1ABC9C" Foreground="White"
+                            Width="200" Margin="0,20,0,0" HorizontalAlignment="Center" 
+                            Click="Button_Click" FontWeight="Bold" FontSize="14" Height="35"/>
+
                 </StackPanel>
-
-                <!-- Month Selection -->
-                <StackPanel Orientation="Horizontal" Margin="0,10">
-                    <TextBlock Text="Month:" Width="150" VerticalAlignment="Center" FontWeight="SemiBold"/>
-                    <ComboBox x:Name="MonthComboBox" Width="200">
-                        <ComboBoxItem Content="January"/>
-                        <ComboBoxItem Content="February"/>
-                        <ComboBoxItem Content="March"/>
-                        <ComboBoxItem Content="April"/>
-                        <ComboBoxItem Content="May"/>
-                        <ComboBoxItem Content="June"/>
-                        <ComboBoxItem Content="July"/>
-                        <ComboBoxItem Content="August"/>
-                        <ComboBoxItem Content="September"/>
-                        <ComboBoxItem Content="October"/>
-                        <ComboBoxItem Content="November"/>
-                        <ComboBoxItem Content="December"/>
-                    </ComboBox>
-                </StackPanel>
-
-                <!-- Year Input -->
-                <StackPanel Orientation="Horizontal" Margin="0,10">
-                    <TextBlock Text="Year:" Width="150" VerticalAlignment="Center" FontWeight="SemiBold"/>
-                    <TextBox x:Name="YearTextBox" Width="200" Text="2024"/>
-                </StackPanel>
-
-                <!-- Hours Worked -->
-                <StackPanel Orientation="Horizontal" Margin="0,10">
-                    <TextBlock Text="Total Hours Worked:" Width="150" VerticalAlignment="Center" FontWeight="SemiBold"/>
-                    <TextBox x:Name="HoursTextBox" Width="200" Text="0"/>
-                </StackPanel>
-
-                <!-- Hourly Rate -->
-                <StackPanel Orientation="Horizontal" Margin="0,10">
-                    <TextBlock Text="Hourly Rate:" Width="150" VerticalAlignment="Center" FontWeight="SemiBold"/>
-                    <TextBlock Text="R50.00" Width="200" VerticalAlignment="Center" Foreground="#7f8c8d"/>
-                </StackPanel>
-
-                <!-- Total Amount -->
-                <StackPanel Orientation="Horizontal" Margin="0,10">
-                    <TextBlock Text="Total Amount:" Width="150" VerticalAlignment="Center" FontWeight="SemiBold"/>
-                    <TextBlock x:Name="TotalAmountText" Text="R0.00" Width="200" VerticalAlignment="Center" 
-                               FontWeight="Bold" Foreground="#27ae60"/>
-                </StackPanel>
-
-                <!-- Additional Notes -->
-                <StackPanel Orientation="Horizontal" Margin="0,10">
-                    <TextBlock Text="Additional Notes:" Width="150" VerticalAlignment="Top" FontWeight="SemiBold"/>
-                    <TextBox x:Name="NotesTextBox" Width="200" Height="60" TextWrapping="Wrap" AcceptsReturn="True"
-                             VerticalScrollBarVisibility="Auto"/>
-                </StackPanel>
-
-                <!-- Submit Button -->
-                <Button Content="Submit Claim" Background="#1ABC9C" Foreground="White"
-                        Width="200" Margin="0,20,0,0" HorizontalAlignment="Center" 
-                        Click="Button_Click" FontWeight="Bold" FontSize="14" Height="35"/>
-            </StackPanel>
+            </ScrollViewer>
         </Border>
     </Grid>
 </UserControl>

@@ -1,4 +1,5 @@
-﻿using Microsoft.Win32;
+﻿
+using Microsoft.Win32;
 using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
@@ -18,22 +19,17 @@ namespace CLAIM
         }
 
         // Add files
-        private void AddFilesButton_Click(object sender, RoutedEventArgs e)
+        private void Button_Click(object sender, RoutedEventArgs e)
         {
-            OpenFileDialog dlg = new OpenFileDialog
-            {
-                Multiselect = true,
-                Filter = "Allowed Files (*.pdf;*.docx;*.xlsx)|*.pdf;*.docx;*.xlsx"
-            };
+            Microsoft.Win32.OpenFileDialog dlg = new Microsoft.Win32.OpenFileDialog();
+            dlg.Filter = "Documents (*.pdf;*.docx;*.xlsx)|*.pdf;*.docx;*.xlsx";
+            dlg.Multiselect = true;
 
             if (dlg.ShowDialog() == true)
             {
-                foreach (var file in dlg.FileNames)
+                foreach (string file in dlg.FileNames)
                 {
-                    if (IsValidFile(file) && !files.Contains(file))
-                    {
-                        files.Add(file);
-                    }
+                    FilesListBox.Items.Add(file);
                 }
             }
         }
@@ -99,5 +95,26 @@ namespace CLAIM
 
             return true;
         }
+
+        private void AddFilesButton_Click(object sender, RoutedEventArgs e)
+        {
+            OpenFileDialog dlg = new OpenFileDialog
+            {
+                Filter = "Documents (*.pdf;*.docx;*.xlsx)|*.pdf;*.docx;*.xlsx",
+                Multiselect = true
+            };
+
+            if (dlg.ShowDialog() == true)
+            {
+                foreach (string file in dlg.FileNames)
+                {
+                    if (IsValidFile(file) && !files.Contains(file))
+                    {
+                        files.Add(file);
+                    }
+                }
+            }
+        }
     }
 }
+

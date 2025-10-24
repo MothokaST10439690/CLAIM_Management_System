@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 17
-VisualStudioVersion = 17.14.36408.4 d17.14
+# Visual Studio Version 18
+VisualStudioVersion = 18.0.11116.177
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CLAIM", "CLAIM.csproj", "{E8A25A74-91DB-424C-97D1-D70C5CF1755E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CLAIM.Test", "..\CLAIM.Test\CLAIM.Test.csproj", "{5A786B97-A534-4E4F-87DC-A382C7ED70F9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{E8A25A74-91DB-424C-97D1-D70C5CF1755E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E8A25A74-91DB-424C-97D1-D70C5CF1755E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E8A25A74-91DB-424C-97D1-D70C5CF1755E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5A786B97-A534-4E4F-87DC-A382C7ED70F9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5A786B97-A534-4E4F-87DC-A382C7ED70F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5A786B97-A534-4E4F-87DC-A382C7ED70F9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5A786B97-A534-4E4F-87DC-A382C7ED70F9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
