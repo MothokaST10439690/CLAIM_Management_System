@@ -3,43 +3,37 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:CLAIM"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
+
     <Grid>
         <Border Background="White" CornerRadius="10" Padding="20" Margin="20"
-                BorderBrush="#9B59B6" BorderThickness="2">
+                BorderBrush="#1ABC9C" BorderThickness="2">
             <StackPanel>
-                <TextBlock Text="Upload Supporting Documents" FontSize="22" FontWeight="Bold"
-                           Foreground="#9B59B6" Margin="0,0,0,20" HorizontalAlignment="Center"/>
+                <TextBlock Text="Upload Documents" FontSize="22" FontWeight="Bold"
+                           Foreground="#1ABC9C" Margin="0,0,0,20" HorizontalAlignment="Center"/>
 
-                <TextBlock Text="Select supporting documents for your claim:" 
-                          Margin="0,0,0,10" FontWeight="SemiBold"/>
-
-                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,10">
-                    <Button Content="Browse Files..." Width="120" 
-                            Background="#9B59B6" Foreground="White" 
-                            Click="Button_Click" FontWeight="SemiBold"/>
-                    <Button Content="Remove Selected" Width="120" Margin="10,0,0,0"
-                            Background="#E74C3C" Foreground="White" 
-                            Click="RemoveButton_Click" FontWeight="SemiBold"/>
+                <!-- Lecturer Name -->
+                <StackPanel Orientation="Horizontal" Margin="0,10">
+                    <TextBlock Text="Lecturer Name:" Width="150" VerticalAlignment="Center" FontWeight="SemiBold"/>
+                    <TextBox x:Name="LecturerNameTextBox" Width="200"/>
                 </StackPanel>
 
-                <TextBlock Text="Allowed formats: PDF, DOCX, XLSX (Max 10MB per file)" 
-                          FontSize="11" Foreground="#7f8c8d" HorizontalAlignment="Center" Margin="0,5,0,10"/>
+                <!-- File List -->
+                <StackPanel Orientation="Vertical" Margin="0,10">
+                    <TextBlock Text="Selected Files:" FontWeight="SemiBold"/>
+                    <ListBox x:Name="FilesListBox" Height="150" Margin="0,5,0,0"/>
+                </StackPanel>
 
-                <ListBox x:Name="FilesListBox" Height="150" Margin="0,10,0,0" 
-                        BorderBrush="#bdc3c7" BorderThickness="1">
-                    <ListBox.ItemTemplate>
-                        <DataTemplate>
-                            <TextBlock Text="{Binding}" Margin="5"/>
-                        </DataTemplate>
-                    </ListBox.ItemTemplate>
-                </ListBox>
-
-                <Button Content="Upload Files" Width="200" Margin="0,20,0,0" HorizontalAlignment="Center"
-                        Background="#8E44AD" Foreground="White" Click="Button_Click_1"
-                        FontWeight="Bold" FontSize="14" Height="35"/>
+                <!-- Buttons -->
+                <StackPanel Orientation="Horizontal" Margin="0,10" HorizontalAlignment="Center" >
+                    <Button Content="Add Files" Width="100" Background="#1ABC9C" Foreground="White"
+                            Click="AddFilesButton_Click"/>
+                    <Button Content="Remove File" Width="100" Background="#e74c3c" Foreground="White"
+                            Click="RemoveFileButton_Click"/>
+                    <Button Content="Attach Files" Width="100" Background="#27ae60" Foreground="White"
+                            Click="AttachFilesButton_Click"/>
+                </StackPanel>
             </StackPanel>
         </Border>
     </Grid>

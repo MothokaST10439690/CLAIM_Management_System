@@ -17,7 +17,8 @@ namespace CLAIM
             FilesListBox.ItemsSource = files;
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        // Add files
+        private void AddFilesButton_Click(object sender, RoutedEventArgs e)
         {
             OpenFileDialog dlg = new OpenFileDialog
             {
@@ -29,7 +30,7 @@ namespace CLAIM
             {
                 foreach (var file in dlg.FileNames)
                 {
-                    if (IsValidFile(file))
+                    if (IsValidFile(file) && !files.Contains(file))
                     {
                         files.Add(file);
                     }
@@ -37,7 +38,8 @@ namespace CLAIM
             }
         }
 
-        private void RemoveButton_Click(object sender, RoutedEventArgs e)
+        // Remove selected file
+        private void RemoveFileButton_Click(object sender, RoutedEventArgs e)
         {
             if (FilesListBox.SelectedItem != null)
                 files.Remove(FilesListBox.SelectedItem.ToString());
@@ -45,34 +47,56 @@ namespace CLAIM
                 MessageBox.Show("Please select a file to remove.");
         }
 
-        private void Button_Click_1(object sender, RoutedEventArgs e)
+        // Attach files to the last claim of the current lecturer
+        private void AttachFilesButton_Click(object sender, RoutedEventArgs e)
         {
-            if (files.Count == 0) return;
+            if (files.Count == 0)
+            {
+                MessageBox.Show("No files to attach.");
+                return;
+            }
 
-            var lastClaim = ClaimRepository.GetAll().LastOrDefault(c => c.LecturerName == "John Doe");
+            string lecturerName = LecturerNameTextBox.Text.Trim();
+            if (string.IsNullOrEmpty(lecturerName))
+            {
+                MessageBox.Show("Please enter your name.");
+                return;
+            }
+
+            var lastClaim = ClaimRepository.GetAll()
+                                .LastOrDefault(c => c.LecturerName == lecturerName);
+
             if (lastClaim != null)
             {
                 ClaimService.AttachDocuments(lastClaim, files.ToList());
-                MessageBox.Show("Documents attached!");
+                MessageBox.Show("Documents attached successfully!");
                 files.Clear();
+            }
+            else
+            {
+                MessageBox.Show("No claim found for the entered lecturer.");
             }
         }
 
+        // Validate file type and size
         private bool IsValidFile(string path)
         {
             FileInfo fileInfo = new FileInfo(path);
             double fileSizeMB = fileInfo.Length / (1024.0 * 1024.0);
+
             if (fileSizeMB > 10)
             {
-                MessageBox.Show($"'{fileInfo.Name}' is larger than 10MB.");
+                MessageBox.Show($"'{fileInfo.Name}' exceeds 10MB limit.");
                 return false;
             }
+
             string ext = fileInfo.Extension.ToLower();
             if (ext != ".pdf" && ext != ".docx" && ext != ".xlsx")
             {
                 MessageBox.Show($"'{fileInfo.Name}' is not an allowed file type.");
                 return false;
             }
+
             return true;
         }
     }
